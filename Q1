@@ -1,0 +1,20 @@
+s = input()
+stack = []
+ans = 0
+for i in range(len(s)):
+    if s[i] == "(":
+        stack.append(s[i])
+    else:
+        sum = 0
+        if stack[-1] == "(":
+            sum =1
+            stack.pop()
+            stack.append(sum)
+        else:
+            while stack[-1] != "(":
+                sum += stack[-1]
+                stack.pop()
+            stack.pop()
+            stack.append(2*sum)
+print(stack)
+
